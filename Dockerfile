@@ -1,4 +1,4 @@
-FROM frolvlad/alpine-miniconda3
+FROM continuumio/miniconda3:4.9.2-alpine
 
 # From https://github.com/Docker-Hub-frolvlad/docker-alpine-miniconda3
 
@@ -8,6 +8,8 @@ FROM frolvlad/alpine-miniconda3
 
 WORKDIR /var/workdir/
 
+RUN apk add --no-cache bash
+
 COPY environment.yml .
 
 RUN /opt/conda/bin/conda env create --quiet -f environment.yml && \
@@ -15,4 +17,6 @@ RUN /opt/conda/bin/conda env create --quiet -f environment.yml && \
 
 EXPOSE 8888
 
-CMD ["jupyter", "notebook", "--allow-root"]
+COPY start.sh .
+
+CMD ["bash", "start.sh"]
