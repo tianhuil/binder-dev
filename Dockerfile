@@ -8,7 +8,9 @@ FROM frolvlad/alpine-miniconda3
 
 WORKDIR /var/workdir/
 
-RUN /opt/conda/bin/conda install --quiet --yes numpy jupyter pandas scikit-learn && \
+COPY environment.yml .
+
+RUN /opt/conda/bin/conda env create --quiet -f environment.yml && \
     /opt/conda/bin/conda clean --yes --all
 
 EXPOSE 8888
