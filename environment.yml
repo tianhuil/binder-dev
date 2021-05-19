@@ -2,7 +2,7 @@ name: pyds
 
 channels:
   - conda-forge
-- anaconda
+  - anaconda
 
 dependencies:
   - matplotlib=3.3.1
