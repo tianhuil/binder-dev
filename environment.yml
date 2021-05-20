@@ -13,5 +13,4 @@ dependencies:
   - ipython=7.23.1
   - notebook=6.4.0
   - jupyterlab=3.0.16
-  - pip:
-    - tqdm==4.60.0
+  - tqdm=4.60.0
